@@ -1,67 +1,56 @@
-# Obol Frontend Challenge
-This is a home assesment for frontend candidates
+# Obol Advanced Frontend Challenge
+
+Welcome to Obol's frontend developer challenge, now tailored for a more sophisticated skill set with a focus on Server-Side Rendering (SSR), web scraping, and component design.
 
 ## Intro
-The Obol main's mission is to catch them all! the validators of course 😆 so in matter to achieve that, we need to see your CSS skills to create wonderful components
+Obol's main mission is to "catch them all" - validators, that is! We're elevating our approach by not just displaying Pokemon, but also providing an interactive tooltip preview using advanced frontend techniques.
 
 ## Assignment
-Given a data API located here: [Pokemon API](https://pokeapi.co/docs/v2#pokemon).
+Enhance the Pokemon application to list Pokemon using SSR and show a tooltip preview with basic Pokemon info on hover. The tooltip data should be dynamically loaded using web scraping techniques.
 
-## Figma File 
+## Design Reference
 
-https://www.figma.com/file/iXKExkvVS8K9Vc13mz3jxk/Deep-Work-x-Obol?node-id=3495%3A7764 
+Please refer to our updated Figma file for design guidelines: [Figma File](https://www.figma.com/file/iXKExkvVS8K9Vc13mz3jxk/Deep-Work-x-Obol?node-id=3495%3A7764)
 
-![image](https://user-images.githubusercontent.com/5679878/178573911-2ef475d4-f93b-481f-8475-c4693fdf119e.png)
+## Key Features and Technical Requirements
 
+- **Server-Side Rendering (SSR):** The application should use SSR for rendering the list of Pokemon, ensuring improved performance and SEO.
+- **Tooltip Preview:** Implement a tooltip that appears on hover over a Pokemon in the list. This tooltip should display initial information about the Pokemon, obtained via server-side web scraping.
+- **Web Scraping for Tooltip Data:** Fetch tooltip data through server-side web scraping from a reliable source.
+- **External Linking:** Clicking on a Pokemon should redirect the user to the corresponding Bulbapedia page for detailed information.
+- **API Integration:** Use the provided API endpoints to fetch Pokemon data and add backend logic for web scraping as needed.
+- **Use of Tailwind CSS:** Implement Tailwind CSS for styling. You may use headless component libraries, but if the library includes base designs (like Shadcdn UI), ensure to override them to match the style in the Figma design.
+- **Atomic Design Pattern:** Components should be developed using the Atomic Design methodology for better reusability and organization.
+- **Deployment:** Deploy the updated application to a platform like Netlify, ensuring that SSR works correctly in the production environment.
 
-## Requirements
-- displays a list of the of Pokemon using component driven development pattern
-- allows you to click on details to open a new tab with wiki data (see instrunction on figma file).
-- Search by id or name, the search needs to be triggered by the search button
+## API Endpoints
 
-## Api endpoints
-- https://pokeapi.co/api/v2/pokemon?limit=151 to get all the pokemon with a limit
-- https://pokeapi.co/api/v2/pokemon/{id-or-name}/ for searching the pokemon
-- https://img.pokemondb.net/artwork/large/{name}.jpg for get the image
-- https://bulbapedia.bulbagarden.net/wiki/{name} link to wiki
+- List of Pokemon: `https://pokeapi.co/api/v2/pokemon?limit=151`
+- Individual Pokemon: `https://pokeapi.co/api/v2/pokemon/{id-or-name}/`
+- Pokemon Image: `https://img.pokemondb.net/artwork/large/{name}.jpg`
+- Bulbapedia Link: `https://bulbapedia.bulbagarden.net/wiki/{name}` (for external linking)
 
-## Extra
-- Use a fancy data fetching tool like [SWR](https://swr.vercel.app/) or [React Query](https://tanstack.com/query/v4/?from=reactQueryV3&original=https://react-query-v3.tanstack.com/)
+## Getting Started
 
-# Getting Started with Create Next App
+1. Clone the repository.
+2. If Node.js is not installed, download it from [here](https://nodejs.org/en/).
+3. Initialize the project with Create Next.js App using Yarn.
+4. Follow the Git Flow model for branching and PRs.
+5. After completion, submit a PR to the main branch.
 
-This project needs to be bootstrapped with [Create NextJs App](https://nextjs.org/docs/api-reference/create-next-app).
+### Development Commands
 
-## Steps:
-1. Clone this repository 
-2. If you don't have node installed download it here: https://nodejs.org/en/
-3. Boostrap the project with [Create NextJs App](https://nextjs.org/docs/api-reference/create-next-app), use yarn.
-4. Run yarn start, and it should load a basic rendered page in your default browser
-5. Do periodically commits and use `feature/` branches for commits, please read git flow -> https://nvie.com/posts/a-successful-git-branching-model/
-6. Once you finish, made a PR to main branch on this repo.
-5. You're ready to code!
+- `nvm use` (requires .nvmrc file)
+- `yarn && yarn dev` for development mode
+- `yarn start` for production mode
 
-### `nvm use` (to use this myou need to add .nvmrc file)
-### `yarn && yarn dev`
+## Evaluation Criteria
 
-## Available Scripts
+- Effective implementation of SSR and web scraping.
+- Performance and optimization.
+- Code quality, following best practices.
+- Adherence to the Atomic Design methodology.
+- Styling accuracy compared to the Figma design.
+- Documentation and readability of code.
 
-In the project directory, you can run:
-
-### `yarn start` when project is build
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-
-# Important things to use
-
-1. Typescript
-2. React Hooks
-3. [Stitches.dev](https://stiches.dev) for the styling
-4. [Atomic design pattern](https://atomicdesign.bradfrost.com/chapter-2/)
-5. Upload this to netlify site
-
-# Optional but cool stuff that you can use.
-1. State manager like [zustand](https://github.com/pmndrs/zustand) or [recoil](https://recoiljs.org/).
-2. NextJS layouts.
+We look forward to seeing your innovative approach to this challenge. Good luck!
