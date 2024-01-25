@@ -1,56 +1,60 @@
-# Obol Advanced Frontend Challenge
+# Obol dAPP Challenge
 
-Welcome to Obol's frontend developer challenge, now tailored for a more sophisticated skill set with a focus on Server-Side Rendering (SSR), web scraping, and component design.
+Welcome to Obol's frontend and Web3 developer challenge, focusing on modern web technologies and blockchain interactions.
 
 ## Intro
-Obol's main mission is to "catch them all" - validators, that is! We're elevating our approach by not just displaying Pokemon, but also providing an interactive tooltip preview using advanced frontend techniques.
+Obol's mission expands to the world of Web3! Not only do we want to list and preview Pokemon, but we also want to allow users to interact with them using Ethereum blockchain technology.
 
 ## Assignment
-Enhance the Pokemon application to list Pokemon using SSR and show a tooltip preview with basic Pokemon info on hover. The tooltip data should be dynamically loaded using web scraping techniques.
+Enhance the Pokemon application to integrate Web3 functionalities. Users should be able to connect their MetaMask wallet and "capture" a Pokemon by signing a simple Ethereum transaction.
 
 ## Design Reference
 
-Please refer to our updated Figma file for design guidelines: [Figma File](https://www.figma.com/file/iXKExkvVS8K9Vc13mz3jxk/Deep-Work-x-Obol?node-id=3495%3A7764)
+Refer to our updated Figma file for design guidelines: [Figma File](https://www.figma.com/file/iXKExkvVS8K9Vc13mz3jxk/Deep-Work-x-Obol?node-id=3495%3A7764)
 
 ## Key Features and Technical Requirements
 
-- **Server-Side Rendering (SSR):** The application should use SSR for rendering the list of Pokemon, ensuring improved performance and SEO.
-- **Tooltip Preview:** Implement a tooltip that appears on hover over a Pokemon in the list. This tooltip should display initial information about the Pokemon, obtained via server-side web scraping.
-- **Web Scraping for Tooltip Data:** Fetch tooltip data through server-side web scraping from a reliable source.
-- **External Linking:** Clicking on a Pokemon should redirect the user to the corresponding Bulbapedia page for detailed information.
-- **API Integration:** Use the provided API endpoints to fetch Pokemon data and add backend logic for web scraping as needed.
-- **Use of Tailwind CSS:** Implement Tailwind CSS for styling. You may use headless component libraries, but if the library includes base designs (like Shadcdn UI), ensure to override them to match the style in the Figma design.
-- **Atomic Design Pattern:** Components should be developed using the Atomic Design methodology for better reusability and organization.
-- **Deployment:** Deploy the updated application to a platform like Netlify, ensuring that SSR works correctly in the production environment.
+- **MetaMask Wallet Connection:** Implement functionality to connect to a user's MetaMask wallet using libraries like ethers.js, web3-react, or useDapp.
+- **Ethereum Transaction Signing:** Allow users to "capture" a Pokemon by initiating and signing a simple Ethereum transaction.
+- **Server-Side Rendering (SSR):** Continue using SSR for enhanced performance and SEO.
+- **Tooltip Preview with Web Scraping:** Implement a tooltip with basic Pokemon info using server-side web scraping.
+- **Tailwind CSS and Atomic Design:** Use Tailwind CSS for styling and follow the Atomic Design methodology for component development.
+- **Use of React Hooks and Custom Hooks:** Emphasize the use of React Hooks for state and lifecycle management, particularly in managing Web3 interactions.
+- **API Integration and Web3 Integration:** Use the provided Pokemon API and integrate Web3 functionalities for blockchain interactions.
+- **Deployment:** Deploy the application ensuring that both SSR and Web3 functionalities work seamlessly in the production environment.
 
-## API Endpoints
+## API and Blockchain Endpoints
 
-- List of Pokemon: `https://pokeapi.co/api/v2/pokemon?limit=151`
-- Individual Pokemon: `https://pokeapi.co/api/v2/pokemon/{id-or-name}/`
-- Pokemon Image: `https://img.pokemondb.net/artwork/large/{name}.jpg`
-- Bulbapedia Link: `https://bulbapedia.bulbagarden.net/wiki/{name}` (for external linking)
+- Pokemon List: `https://pokeapi.co/api/v2/pokemon?limit=151`
+- Individual Pokemon Data: `https://pokeapi.co/api/v2/pokemon/{id-or-name}/`
+- Bulbapedia Link: `https://bulbapedia.bulbagarden.net/wiki/{name}`
+- Ethereum Blockchain Interaction: via MetaMask and Ethereum smart contracts (details to be provided)
 
 ## Getting Started
 
 1. Clone the repository.
-2. If Node.js is not installed, download it from [here](https://nodejs.org/en/).
-3. Initialize the project with Create Next.js App using Yarn.
-4. Follow the Git Flow model for branching and PRs.
-5. After completion, submit a PR to the main branch.
+2. Ensure Node.js is installed.
+3. Initialize the project using Create Next.js App with Yarn.
+4. Implement features following the Git Flow model.
+5. Submit a PR to the main branch upon completion.
 
 ### Development Commands
 
-- `nvm use` (requires .nvmrc file)
-- `yarn && yarn dev` for development mode
-- `yarn start` for production mode
+- `nvm use`
+- `yarn && yarn dev` (for development)
+- `yarn start` (for production)
 
 ## Evaluation Criteria
 
-- Effective implementation of SSR and web scraping.
-- Performance and optimization.
-- Code quality, following best practices.
-- Adherence to the Atomic Design methodology.
-- Styling accuracy compared to the Figma design.
-- Documentation and readability of code.
+- Successful integration of Web3 functionalities.
+- Clean and efficient implementation of SSR and web scraping.
+- Quality and organization of code, following best practices.
+- Effective use of React Hooks and custom hooks.
+- Styling accuracy and adherence to design patterns.
+- Documentation and ease of understanding.
 
-We look forward to seeing your innovative approach to this challenge. Good luck!
+This challenge is your opportunity to showcase your skills in both advanced frontend development and basic Web3 interactions. We are excited to see how you creatively integrate these technologies!
+
+## deploy
+
+Deploy this using something like vercel or similar, and share the deployed link in your PR description.
