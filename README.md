@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d5d2fdf (Use yarn and update README)
 # Obol dAPP Challenge
 
 Welcome to Obol's frontend and Web3 developer challenge, focusing on modern web technologies and blockchain interactions.
@@ -29,6 +32,7 @@ Refer to our updated Figma file for design guidelines: [Figma File]([https://www
 - Pokemon List: `https://pokeapi.co/api/v2/pokemon?limit=151`
 - Individual Pokemon Data: `https://pokeapi.co/api/v2/pokemon/{id-or-name}/`
 - Bulbapedia Link: `https://bulbapedia.bulbagarden.net/wiki/{name}`
+<<<<<<< HEAD
 
 ## Getting Started
 
@@ -60,31 +64,37 @@ This challenge is your opportunity to showcase your skills in both advanced fron
 Deploy this using something like vercel or similar, and share the deployed link in your PR description.
 =======
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+=======
+>>>>>>> d5d2fdf (Use yarn and update README)
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository.
+2. Ensure Node.js is installed.
+3. Initialize the project using Create Next.js App with Yarn.
+4. Implement features following the Git Flow model.
+5. Submit a PR to the main branch upon completion.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Development Commands
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- `nvm use`
+- `yarn && yarn dev` (for development)
+- `yarn start` (for production)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Evaluation Criteria
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Successful integration of Web3 functionalities.
+- Clean and efficient implementation of SSR and web scraping.
+- Quality and organization of code, following best practices.
+- Effective use of React Hooks and custom hooks.
+- Styling accuracy and adherence to design patterns.
+- Documentation and ease of understanding.
 
-## Learn More
+This challenge is your opportunity to showcase your skills in both advanced frontend development and basic Web3 interactions. We are excited to see how you creatively integrate these technologies!
 
-To learn more about Next.js, take a look at the following resources:
+## deploy
 
+<<<<<<< HEAD
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
@@ -96,3 +106,6 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 >>>>>>> 9d987da (Initial commit from Create Next App)
+=======
+Deploy this using something like vercel or similar, and share the deployed link in your PR description.
+>>>>>>> d5d2fdf (Use yarn and update README)
