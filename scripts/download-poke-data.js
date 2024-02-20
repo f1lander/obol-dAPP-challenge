@@ -11,6 +11,19 @@ const fetchPokemonList = async () => {
 };
 
 (async () => {
+  const force = process.argv[2] === "--force";
+
+  const filePath = path.join(__dirname, "../pages/api/pokemon/poke-data.json");
+  const fileExists = fs.existsSync(filePath);
+
+  if (fileExists && !force) {
+    console.log("File already exists, skipping download");
+
+    return;
+  }
+
+  console.log("Downloading pokemon data");
+
   const pokemonList = await fetchPokemonList();
   for (let i = 0; i < pokemonList.results.length; i++) {
     const pokemon = pokemonList.results[i];
@@ -19,8 +32,5 @@ const fetchPokemonList = async () => {
 
     pokemonList.results[i].details = data;
   }
-  fs.writeFileSync(
-    path.join(__dirname, "../pages/api/pokemon/poke-data.json"),
-    JSON.stringify(pokemonList),
-  );
+  fs.writeFileSync(filePath, JSON.stringify(pokemonList));
 })();

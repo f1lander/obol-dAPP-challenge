@@ -19,7 +19,7 @@ export default function useSignPokemon(name: string) {
           setSigned(true);
         }
       });
-  }, []);
+  }, [name]);
 
   const signPokemon = useCallback(async () => {
     if (!window.ethereum) {

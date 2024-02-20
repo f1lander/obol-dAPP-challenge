@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Pokemon } from "../types";
 import Button from "./Button";
 import CollectButton from "./CollectButton";
@@ -10,11 +11,13 @@ export default function PokemonCard({ pokemon }: PokemonCardProps) {
   return (
     <div className="mb-6 ml-8 flex w-[395px] flex-col items-center overflow-hidden rounded-xl">
       <div className="bg-muted/50 h-[222px] w-full">
-        <div className="h-[222px] overflow-hidden">
-          <img
-            className="mx-auto h-full object-cover"
+        <div className="relative h-[222px] overflow-hidden">
+          <Image
+            className="mx-auto h-full object-contain"
             src={pokemon.image}
             alt={pokemon.name}
+            fill={true}
+            sizes="100%"
           />
         </div>
       </div>

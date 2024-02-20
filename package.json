@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "fetchPokemonData": "node scripts/download-poke-data.js",
+    "fetchPokemonData": "node scripts/download-poke-data.js --force",
+    "predev": "node scripts/download-poke-data.js",
     "dev": "next dev",
+    "prebuild": "node scripts/download-poke-data.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
