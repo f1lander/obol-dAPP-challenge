@@ -1,3 +1,5 @@
+import { Eip1193Provider } from "ethers";
+
 export type Pokemon = {
   name: string;
   abilities: Array<{
@@ -9,3 +11,9 @@ export type Pokemon = {
 };
 
 export type PokemonList = Array<Pokemon>;
+
+declare global {
+  interface Window {
+    ethereum?: Eip1193Provider;
+  }
+}

@@ -1,5 +1,6 @@
 import { Pokemon } from "../types";
 import Button from "./Button";
+import CollectButton from "./CollectButton";
 
 export type PokemonCardProps = {
   pokemon: Pokemon;
@@ -29,11 +30,7 @@ export default function PokemonCard({ pokemon }: PokemonCardProps) {
           })}
         </ul>
         <div>
-          <Button
-            onClick={() => console.info("Connect with metamask and sign")}
-          >
-            Collect
-          </Button>
+          <CollectButton pokemon={pokemon}>Collect</CollectButton>
         </div>
         <div>
           <Button
