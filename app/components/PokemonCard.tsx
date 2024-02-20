@@ -37,7 +37,7 @@ export default function PokemonCard({ pokemon }: PokemonCardProps) {
         </div>
         <div>
           <Button
-            type="secondary"
+            variant="secondary"
             href={`${process.env.NEXT_PUBLIC_BULBAPEDIA}/${pokemon.name}`}
             target="_blank"
           >

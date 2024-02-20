@@ -1,22 +1,31 @@
 "use client";
-import { ChangeEvent } from "react";
+import { FormEvent } from "react";
 import { useSearch } from "../context/SearchProvider";
+import Button from "./Button";
 
 export default function Search() {
-  const { search, setSearch } = useSearch();
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
+  const { setSearch } = useSearch();
+
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const search = formData.get("search") as string;
+
+    setSearch(search.trim().toLowerCase());
   };
 
   return (
-    <div>
-      <input
-        className="text-black"
-        type="text"
-        placeholder="Search"
-        value={search}
-        onChange={handleChange}
-      />
-    </div>
+    <form onSubmit={onSubmit}>
+      <div className="my-10 ml-10 flex items-center space-x-4">
+        <h3 className="text-light text-2xl font-bold">Search</h3>
+        <input
+          className="text-light border-divider bg-input w-96 rounded-md border-2 px-4 py-2 outline-none"
+          type="text"
+          placeholder=""
+          name="search"
+        />
+        <Button type="submit">Search</Button>
+      </div>
+    </form>
   );
 }

@@ -15,8 +15,10 @@ const config: Config = {
         primaryHover: "#82EDCC",
         textButtonPrimary: "#091011",
         textButtonPrimaryHover: "#045062",
-        disabed: "#243D42",
+        disabled: "#243D42",
+        input: "#111F22",
         muted: "#475E64",
+        light: "#D9EEF#",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
