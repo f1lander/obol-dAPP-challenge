@@ -4,7 +4,7 @@ const Logo = () => {
   return (
     <div className="flex space-x-2">
       <Image
-        className=""
+        className="h-auto w-auto"
         src="/obol.svg"
         alt="Obol Logo"
         width={108}

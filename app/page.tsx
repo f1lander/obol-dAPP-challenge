@@ -1,16 +1,8 @@
-import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Header from "./components/Header";
 import Logo from "./components/Logo";
-
-type PokemonList = Array<{
-  name: string;
-  abilities: Array<{
-    ability: {
-      name: string;
-    };
-  }>;
-  image: string;
-}>;
+import PokemonListComponent from "./components/PokemonList";
+import Search from "./components/Search";
+import type { PokemonList } from "./types";
 
 export default async function Home() {
   const pokemonList: PokemonList = await (
@@ -24,22 +16,9 @@ export default async function Home() {
       <Header>
         <Logo />
       </Header>
+      <Search />
       <div>
-        {pokemonList.map((pokemon) => {
-          return (
-            <div key={pokemon.name} className="flex flex-col items-center">
-              <img src={pokemon.image} alt={pokemon.name} />
-              <h2>{pokemon.name}</h2>
-              <ul>
-                {pokemon.abilities.map((ability) => {
-                  return (
-                    <li key={ability.ability.name}>{ability.ability.name}</li>
-                  );
-                })}
-              </ul>
-            </div>
-          );
-        })}
+        <PokemonListComponent data={pokemonList} />
       </div>
     </main>
   );
