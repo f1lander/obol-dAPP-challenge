@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         divider: "#182D32",
+        content: "#182D32",
         primary: "#2FE4AB",
         muted: "#475E64",
       },

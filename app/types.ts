@@ -1,4 +1,4 @@
-export type PokemonList = Array<{
+export type Pokemon = {
   name: string;
   abilities: Array<{
     ability: {
@@ -6,4 +6,6 @@ export type PokemonList = Array<{
     };
   }>;
   image: string;
-}>;
+};
+
+export type PokemonList = Array<Pokemon>;
