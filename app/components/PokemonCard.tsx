@@ -1,4 +1,5 @@
 import { Pokemon } from "../types";
+import Button from "./Button";
 
 export type PokemonCardProps = {
   pokemon: Pokemon;
@@ -27,8 +28,22 @@ export default function PokemonCard({ pokemon }: PokemonCardProps) {
             );
           })}
         </ul>
-        <button>Collect</button>
-        <button>Details</button>
+        <div>
+          <Button
+            onClick={() => console.info("Connect with metamask and sign")}
+          >
+            Collect
+          </Button>
+        </div>
+        <div>
+          <Button
+            type="secondary"
+            href={`${process.env.NEXT_PUBLIC_BULBAPEDIA}/${pokemon.name}`}
+            target="_blank"
+          >
+            Details
+          </Button>
+        </div>
       </div>
     </div>
   );

@@ -12,6 +12,10 @@ const config: Config = {
         divider: "#182D32",
         content: "#182D32",
         primary: "#2FE4AB",
+        primaryHover: "#82EDCC",
+        textButtonPrimary: "#091011",
+        textButtonPrimaryHover: "#045062",
+        disabed: "#243D42",
         muted: "#475E64",
       },
       backgroundImage: {
