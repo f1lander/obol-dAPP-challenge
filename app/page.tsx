@@ -5,11 +5,11 @@ import Search from "./components/Search";
 import type { PokemonList } from "./types";
 
 export default async function Home() {
-  const pokemonList: PokemonList = await (
-    await fetch("http://localhost:3000/api/pokemon", {
-      cache: "force-cache",
-    })
-  ).json();
+  // const pokemonList: PokemonList = await (
+  //   await fetch("http://localhost:3000/api/pokemon", {
+  //     cache: "force-cache",
+  //   })
+  // ).json();
 
   return (
     <main className="flex min-h-screen flex-col items-center">
@@ -18,7 +18,7 @@ export default async function Home() {
       </Header>
       <div>
         <Search />
-        <PokemonListComponent data={pokemonList} />
+        <PokemonListComponent data={[]} />
       </div>
     </main>
   );
