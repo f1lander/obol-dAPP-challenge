@@ -46,7 +46,7 @@ Refer to our updated Figma file for design guidelines: [Figma File]([https://www
 ## Evaluation Criteria
 
 - Successful integration of Web3 functionalities.
-- Clean and efficient implementation of SSR and web scraping.
+- Clean and efficient implementation of SSR, data state, and web scraping.
 - Quality and organization of code, following best practices.
 - Effective use of React Hooks and custom hooks.
 - Styling accuracy and adherence to design patterns.
