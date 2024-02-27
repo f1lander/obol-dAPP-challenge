@@ -1,7 +1,15 @@
 import { JSDOM } from "jsdom";
+import { NextApiRequest, NextApiResponse } from "next";
 
-const getPokemonDescription = async (req, res) => {
-  const body = JSON.parse(req.body);
+type Data = {
+  description: string | null | undefined;
+};
+
+const getPokemonDescription = async (
+  req: NextApiRequest,
+  res: NextApiResponse<Data>
+) => {
+  const body = JSON.parse(req.body as string);
   const { name: pokemonName } = body;
   const response = await fetch(
     `https://bulbapedia.bulbagarden.net/wiki/${pokemonName}`

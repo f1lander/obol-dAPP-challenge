@@ -3,7 +3,21 @@ import { Button } from "../atoms/Button";
 import { Tooltip } from "../molecules/Tooltip";
 import { useEffect } from "react";
 
-export const Card = ({ name, abilities, collected, imageUrl, onCollect }) => {
+type Props = {
+  name: string;
+  abilities: Array<string>;
+  collected: boolean;
+  imageUrl: string;
+  onCollect: (name: string) => void;
+};
+
+export const Card = ({
+  name,
+  abilities,
+  collected,
+  imageUrl,
+  onCollect,
+}: Props) => {
   const { isPending, isSuccess: isConfirmed, signMessage } = useSignMessage();
 
   const handleCollect = () => {
@@ -13,7 +27,7 @@ export const Card = ({ name, abilities, collected, imageUrl, onCollect }) => {
     if (isConfirmed) {
       onCollect(name);
     }
-  }, [isConfirmed]);
+  }, [isConfirmed, name, onCollect]);
 
   return (
     <div className="w-[395px] h-[506px] bg-gray-800 rounded-xl">

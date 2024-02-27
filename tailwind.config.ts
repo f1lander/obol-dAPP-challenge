@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from "tailwindcss";
+
+const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -27,9 +28,10 @@ module.exports = {
         "3xl": ["32px", "48px"],
       },
       gridTemplateColumns: {
-        'card': 'repeat(auto-fill, minmax(395px, 1fr))',
-      }
+        card: "repeat(auto-fill, minmax(395px, 1fr))",
+      },
     },
   },
   plugins: [],
 };
+export default config;

@@ -3,8 +3,12 @@ import { Button } from "../atoms/Button";
 import { Input } from "../atoms/Input";
 import { Title } from "../atoms/Title";
 
-export const Search = ({ onSubmit }) => {
-  const [value, setValue] = useState("");
+type Props = {
+  onSubmit: (value: string) => void;
+};
+
+export const Search = ({ onSubmit }: Props) => {
+  const [value, setValue] = useState<string>("");
 
   const handleClick = () => {
     onSubmit(value);

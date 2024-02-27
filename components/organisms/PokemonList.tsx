@@ -11,7 +11,7 @@ export const PokemonList = () => {
       <div className="grid grid-cols-card gap-y-10 mt-24">
         {pokemonsResult.map((pokemon) => (
           <Card
-            key={pokemon.name}
+            key={pokemon.id}
             name={pokemon.name}
             imageUrl={pokemon.imageUrl}
             abilities={pokemon.abilities}

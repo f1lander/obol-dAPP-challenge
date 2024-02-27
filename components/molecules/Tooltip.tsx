@@ -3,7 +3,11 @@ import { Tooltip as ReactTooltip } from "react-tooltip";
 import arrow from "@/public/arrow.svg";
 import { usePokemonDescription } from "@/hooks/usePokemonDescription";
 
-export const Tooltip = ({ name, imageUrl }) => {
+type Props = {
+  name: string;
+  imageUrl: string;
+};
+export const Tooltip = ({ name, imageUrl }: Props) => {
   const { description } = usePokemonDescription(name);
 
   return (

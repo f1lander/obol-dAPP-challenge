@@ -1,8 +1,12 @@
 import { config } from "@/components/utils/constants";
 import { useEffect, useState } from "react";
 
-export const usePokemonDescription = (name) => {
-  const [description, setDescription] = useState("");
+type Description = {
+  description: string;
+};
+
+export const usePokemonDescription = (name: string): Description => {
+  const [description, setDescription] = useState<string>("");
 
   useEffect(() => {
     (async () => {
@@ -17,7 +21,7 @@ export const usePokemonDescription = (name) => {
         console.log("Something went wrong...");
       }
     })();
-  }, []);
+  }, [name]);
 
   return { description };
 };

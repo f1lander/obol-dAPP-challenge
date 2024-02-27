@@ -2,23 +2,53 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { usePokemonQuery } from "./usePokemonQuery";
 
-export const usePokemonList = () => {
-  const [pokemonsList, setPokemonsList] = useState([]);
-  const [pokemonsResult, setPokemonsResult] = useState([]);
+type Ability = {
+  ability: {
+    name: string;
+  };
+};
+
+type PokemonResponse = {
+  id: string;
+  name: string;
+  abilities: Array<Ability>;
+  sprites: { front_default: string };
+};
+
+export type Pokemon = {
+  id: string;
+  imageUrl: string;
+  name: string;
+  abilities: Array<string>;
+  collected: boolean;
+};
+
+type PokemonsData = {
+  pokemonsResult: Array<Pokemon>;
+  handleSearch: (value: string) => void;
+  handleCollect: (value: string) => void;
+};
+
+export const usePokemonList = (): PokemonsData => {
+  const [pokemonsList, setPokemonsList] = useState<Array<Pokemon>>([]);
+  const [pokemonsResult, setPokemonsResult] = useState<Array<Pokemon>>([]);
   const { data } = usePokemonQuery();
 
-  const handleSearch = (value) => {
-    const result = pokemonsList.filter(({ name }) => name.includes(value));
+  const handleSearch = (value: string) => {
+    const result = pokemonsList.filter((pokemon: Pokemon) =>
+      pokemon.name.includes(value)
+    );
     setPokemonsResult(result);
   };
 
-  const handleCollect = (value) => {
+  const handleCollect = (value: string) => {
     const pokemon = pokemonsList.find(({ name }) => name === value);
-    const collectedPokemon = { ...pokemon, collected: true };
+    if (!pokemon) return null;
+    const collectedPokemon: Pokemon = { ...pokemon, collected: true };
 
     // Update list of all pokemons
-    const newList = [...pokemonsList].map((obj) =>
-      obj.name === collectedPokemon.name ? collectedPokemon : obj
+    const newList = [...pokemonsList].map((pokemon: Pokemon) =>
+      pokemon.name === collectedPokemon.name ? collectedPokemon : pokemon
     );
 
     // Update displayed results
@@ -34,10 +64,10 @@ export const usePokemonList = () => {
     (async () => {
       if (data?.data) {
         try {
-          const pokemons = await Promise.all(
+          const pokemons: Pokemon[] = await Promise.all(
             data.data.results.map(async (result) => {
               const data = await axios.get(result.url);
-              const pokemon = data.data;
+              const pokemon: PokemonResponse = data.data;
               const abilities = pokemon.abilities
                 .map(({ ability }) => ability.name)
                 .slice(0, 3);

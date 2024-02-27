@@ -2,8 +2,9 @@ import dynamic from "next/dynamic";
 import { useAccount, useDisconnect } from "wagmi";
 import { Button } from "../atoms/Button";
 import { useReadyConnector } from "@/hooks/useReadyConnector";
+import { ReactNode } from "react";
 
-const Account = () => {
+const Account = (): ReactNode => {
   const { address } = useAccount();
   const { disconnect } = useDisconnect();
 
@@ -15,7 +16,7 @@ const Account = () => {
   );
 };
 
-const WalletButton = () => {
+const WalletButton = (): ReactNode => {
   const { connector, connect, ready } = useReadyConnector();
 
   return (
@@ -28,7 +29,7 @@ const WalletButton = () => {
   );
 };
 
-export const ConnectWallet = () => {
+export const ConnectWallet = (): ReactNode => {
   const { isConnected } = useAccount();
   return <div>{isConnected ? <Account /> : <WalletButton />}</div>;
 };
