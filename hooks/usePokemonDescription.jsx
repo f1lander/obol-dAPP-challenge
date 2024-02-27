@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 export const usePokemonDescription = (name) => {
   const [description, setDescription] = useState("");
-console.log(config.url)
+
   useEffect(() => {
     (async () => {
       try {
