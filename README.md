@@ -36,7 +36,7 @@ Refer to our updated Figma file for design guidelines: [Figma File]([https://www
 3. Initialize the project using Create Next.js App with Yarn.
 4. Implement features following the Git Flow model.
 5. Submit a PR to the main branch upon completion.
-
+👀
 ### Development Commands
 
 - `nvm use`
@@ -51,6 +51,8 @@ Refer to our updated Figma file for design guidelines: [Figma File]([https://www
 - Effective use of React Hooks and custom hooks.
 - Styling accuracy and adherence to design patterns.
 - Documentation and ease of understanding.
+
+Use TS please 👀
 
 This challenge is your opportunity to showcase your skills in both advanced frontend development and basic Web3 interactions. We are excited to see how you creatively integrate these technologies!
 
