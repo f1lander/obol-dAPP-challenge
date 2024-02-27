@@ -3,13 +3,12 @@ import { useEffect, useState } from "react";
 
 export const usePokemonDescription = (name) => {
   const [description, setDescription] = useState("");
-console.log(config.url)
+
   useEffect(() => {
     (async () => {
       try {
         const res = await fetch(`${config.url}/api/getPokemonDescription`, {
           method: "POST",
-          mode: 'no-cors',
           body: JSON.stringify({ name }),
         });
         const { description } = await res.json();
