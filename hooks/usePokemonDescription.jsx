@@ -9,6 +9,7 @@ export const usePokemonDescription = (name) => {
       try {
         const res = await fetch(`${config.url}/api/getPokemonDescription`, {
           method: "POST",
+          mode: 'no-cors',
           body: JSON.stringify({ name }),
         });
         const { description } = await res.json();
