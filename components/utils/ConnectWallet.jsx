@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import { useAccount, useDisconnect } from "wagmi";
 import { Button } from "../atoms/Button";
-import { useReadyConnector } from "@/pages/hooks/useReadyConnector";
+import { useReadyConnector } from "@/hooks/useReadyConnector";
 
 const Account = () => {
   const { address } = useAccount();

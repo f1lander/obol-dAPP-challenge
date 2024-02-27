@@ -1,4 +1,4 @@
-import { usePokemonList } from "@/pages/hooks/usePokemonList";
+import { usePokemonList } from "@/hooks/usePokemonList";
 import { Search } from "../molecules/Search";
 import { Card } from "./Card";
 
