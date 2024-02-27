@@ -1,5 +1,5 @@
 const production = {
-    url: 'https://<project-name>.herokuapp.com'
+    url: 'https://obol-d-app-challenge.vercel.app'
   };
   const development = {
     url: 'http://localhost:3000'
