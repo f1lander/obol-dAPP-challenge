@@ -1,4 +1,3 @@
-import 'server-only';
 import { TPokemon, PokemonAbility } from './types';
 
 const apiUrl = 'https://pokeapi.co/api/v2/pokemon';

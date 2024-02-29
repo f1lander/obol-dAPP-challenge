@@ -22,6 +22,10 @@ const config = {
         green: '#2FE4AB',
         body: '#9CC2C9',
         obolDark: '#182D32',
+        destructive: {
+          DEFAULT: '#FF4D4D',
+          foreground: '#ffffff',
+        },
       },
       keyframes: {
         'accordion-down': {

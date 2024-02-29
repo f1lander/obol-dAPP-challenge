@@ -2,20 +2,24 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { Button } from './ui/button';
-import rightArrow from '@/assets/icons/arrow.svg';
+import { CollectButton } from './collect-pokemon';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import ToolTipDetails from '@/components/tooltip-details';
-import CollectButton from './collect-pokemon';
+import rightArrow from '@/assets/icons/arrow.svg';
 import { firstLetterToUppercase } from '@/lib/utils';
 
 type PokemonCardProps = {
   name: string;
-  image: string;
   abilities: string[];
+  image: string;
   id: number;
+  isCollected: {
+    result: string;
+    status: string;
+  };
 };
 
-function PokemonCard({ name, abilities, image, id }: PokemonCardProps) {
+function PokemonCard({ name, abilities, image, id, isCollected }: PokemonCardProps) {
   const [open, setOpen] = useState(false);
   return (
     <section className="group rounded-lg bg-obolDark transition-colors">
@@ -30,7 +34,7 @@ function PokemonCard({ name, abilities, image, id }: PokemonCardProps) {
         </ul>
 
         <div className="flex flex-col justify-between items-center">
-          <CollectButton className="py-3 px-6" />
+          <CollectButton className="py-3 px-6" pokemonId={id} isCollected={isCollected} />
           <TooltipProvider delayDuration={0}>
             <Tooltip>
               <TooltipTrigger asChild>
@@ -41,7 +45,7 @@ function PokemonCard({ name, abilities, image, id }: PokemonCardProps) {
                   </Link>
                 </Button>
               </TooltipTrigger>
-              <TooltipContent className="bg-gray-700 state-effects">
+              <TooltipContent className="border-none state-effects">
                 <ToolTipDetails name={name} image={image} />
               </TooltipContent>
             </Tooltip>
