@@ -41,7 +41,7 @@ function PokemonCard({ name, abilities, image, id }: PokemonCardProps) {
                   </Link>
                 </Button>
               </TooltipTrigger>
-              <TooltipContent className="bg-pink-700 border-none state-effects">
+              <TooltipContent className="bg-gray-700 state-effects">
                 <ToolTipDetails name={name} image={image} />
               </TooltipContent>
             </Tooltip>

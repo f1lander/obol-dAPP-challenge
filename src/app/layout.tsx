@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import NavBar from '../components/navbar';
 import { Web3Modal } from '@/context/wallet-provider';
+import ThemeProvider from '@/context/theme-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,7 +22,9 @@ export default function RootLayout({
       <body>
         <NavBar />
         <main className="flex min-h-screen flex-col items-center p-5 md:p-10 lg:p-20">
-          <Web3Modal>{children}</Web3Modal>
+          <ThemeProvider attribute="class" defaultTheme="dark">
+            <Web3Modal>{children}</Web3Modal>
+          </ThemeProvider>
         </main>
       </body>
     </html>
