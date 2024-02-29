@@ -3,6 +3,8 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { Button } from './ui/button';
 import rightArrow from '@/assets/icons/arrow.svg';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import ToolTipDetails from '@/components/tooltip-details';
 import CollectButton from './collect-pokemon';
 import { firstLetterToUppercase } from '@/lib/utils';
 
@@ -29,13 +31,21 @@ function PokemonCard({ name, abilities, image, id }: PokemonCardProps) {
 
         <div className="flex flex-col justify-between items-center">
           <CollectButton className="py-3 px-6" />
-
-          <Button asChild variant="ghost" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
-            <Link href={`https://bulbapedia.bulbagarden.net/wiki/${name}`} className="text-[#2FE4AB] flex gap-x-2 text-sm mt-2 font-bold ">
-              <span>Details</span>
-              <Image src={rightArrow} alt="Right Arrow" />
-            </Link>
-          </Button>
+          <TooltipProvider delayDuration={0}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button asChild variant="ghost" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+                  <Link href={`https://bulbapedia.bulbagarden.net/wiki/${name}`} className="text-[#2FE4AB] flex gap-x-2 text-sm mt-2 font-bold ">
+                    <span>Details</span>
+                    <Image src={rightArrow} alt="Right Arrow" />
+                  </Link>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent className="bg-pink-700 border-none state-effects">
+                <ToolTipDetails name={name} image={image} />
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
       </div>
     </section>
