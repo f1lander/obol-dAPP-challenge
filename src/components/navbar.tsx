@@ -1,8 +1,9 @@
 import React from 'react';
 import Logo from './logo';
-
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import Link from 'next/link';
+import ConnectButton from './connect-button';
+
 function NavBar() {
   return (
     <>
@@ -16,6 +17,7 @@ function NavBar() {
         </Link>
 
         <div className="flex gap-x-2 items-center">
+          <ConnectButton />
           <Link href="/my-pokemons">
             <Avatar className="cursor-pointer">
               <AvatarImage src="https://github.com/shadcn.png" alt="user" />
