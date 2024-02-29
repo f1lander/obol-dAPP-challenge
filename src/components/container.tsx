@@ -1,12 +1,18 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 import PokemonList from './pokemon-list';
 import SearchBar from './search-bar';
+import { TPokemon } from '@/lib/types';
 
-function Container() {
+type PokemonListProps = {
+  pokemonList: TPokemon[];
+};
+
+function Container({ pokemonList }: PokemonListProps) {
   return (
     <>
       <SearchBar />
-      <PokemonList />
+      <PokemonList pokemonList={pokemonList} />
     </>
   );
 }
