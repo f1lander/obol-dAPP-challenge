@@ -13,7 +13,7 @@ type PokemonCardProps = {
 function ToolTipDetails({ name, image, order, stats, weight }: PokemonCardProps) {
   return (
     <section className="group rounded-lg bg-obolDark transition-colors">
-      <Image src={image} alt={name} width={320} height={180} className="object-cover mx-auto" priority />
+      <Image src={image} alt={name} width={320} height={180} className="object-cover mx-auto" priority loading="eager" />
       <div className="flex flex-col justify-between items-center p-8 h-[124px] bg-obolDark rounded-b-lg">
         <ul className="text-sm text-gray-300 mt-[-40px]">
           {Object.entries(stats).map(([statName, statValue], index) => (

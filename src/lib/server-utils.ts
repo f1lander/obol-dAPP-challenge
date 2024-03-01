@@ -45,17 +45,21 @@ export async function getPokemonList() {
       const weight = detailedInfo.weight;
       const urlSegments = pokemon.url.trim().split('/');
       const id = urlSegments[urlSegments.length - 2];
+      const imageDefault = detailedInfo.sprites.other['official-artwork'].front_default;
+      const imageShiny = detailedInfo.sprites.other['official-artwork'].front_shiny;
 
       return {
         ...pokemon,
         id,
-        image: detailedInfo.sprites.other['official-artwork'].front_default,
+        imageDefault,
+        imageShiny,
         abilities: detailedInfo.abilities.map((abilityInfo: PokemonAbility) => abilityInfo.ability.name),
         order,
         stats: statsObject,
         weight,
       };
     });
+    console.log(pokemonWithDetails);
     return pokemonWithDetails;
   } catch (error: any) {
     console.error(error);

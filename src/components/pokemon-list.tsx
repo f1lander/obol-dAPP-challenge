@@ -43,7 +43,8 @@ export default function PokemonList({ pokemonList }: PokemonListProps) {
             name={pokemon.name}
             key={pokemon.name}
             abilities={pokemon.abilities}
-            image={pokemon.image}
+            imageDefault={pokemon.imageDefault}
+            imageShiny={pokemon.imageShiny}
             id={pokemon.id}
             order={pokemon.order}
             stats={pokemon.stats}

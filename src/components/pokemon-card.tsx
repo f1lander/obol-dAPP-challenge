@@ -12,7 +12,8 @@ import { StatObject } from '@/lib/types';
 type PokemonCardProps = {
   name: string;
   abilities: string[];
-  image: string;
+  imageDefault: string;
+  imageShiny: string;
   id: number;
   order: number;
   stats: StatObject;
@@ -23,12 +24,12 @@ type PokemonCardProps = {
   };
 };
 
-function PokemonCard({ name, abilities, image, id, isCollected, order, stats, weight }: PokemonCardProps) {
+function PokemonCard({ name, abilities, imageDefault, imageShiny, id, isCollected, order, stats, weight }: PokemonCardProps) {
   const [open, setOpen] = useState(false);
 
   return (
     <section className="group rounded-lg bg-obolDark transition-colors">
-      <Image src={image} alt={name} width={320} height={180} className="object-cover mx-auto" priority />
+      <Image src={imageShiny} alt={name} width={320} height={180} className="object-cover mx-auto" priority />
       <div className="flex flex-col justify-between items-center p-4 h-64 bg-obolDark rounded-b-lg">
         <h2 className="text-xl font-semibold text-white ">{firstLetterToUppercase(name)}</h2>
 
@@ -51,7 +52,7 @@ function PokemonCard({ name, abilities, image, id, isCollected, order, stats, we
                 </Button>
               </TooltipTrigger>
               <TooltipContent className="border-none state-effects">
-                <ToolTipDetails name={name} image={image} order={order} stats={stats} weight={weight} />
+                <ToolTipDetails name={name} image={imageDefault} order={order} stats={stats} weight={weight} />
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>

@@ -8,7 +8,8 @@ export type PokemonData = {
 export type TPokemon = {
   name: string;
   url: string;
-  image: string;
+  imageDefault: string;
+  imageShiny: string;
   abilities: string[];
   id: number;
   order: number;
