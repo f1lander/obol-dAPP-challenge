@@ -1,12 +1,5 @@
 'use client';
-
-import { useCallback, useEffect, useState } from 'react';
 import { Button } from './ui/button';
-import { pokemonABI } from '@/abis/CollectPokemon';
-import { useWriteContract, useAccount } from 'wagmi';
-import { wagmiConfig } from '@/config';
-import { toast } from './ui/use-toast';
-import useWalletConnect from '@/hooks/useWalletConnect';
 import useCollectPokemon from '@/hooks/useCollectPokemon';
 
 type CollectButtonProps = {
