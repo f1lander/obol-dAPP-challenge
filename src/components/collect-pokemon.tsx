@@ -11,8 +11,8 @@ import useCollectPokemon from '@/hooks/useCollectPokemon';
 
 type CollectButtonProps = {
   pokemonId: number;
-  className?: string;
   isCollected: { result: string; status: string };
+  className?: string;
 };
 
 export function CollectButton({ pokemonId, className, isCollected }: CollectButtonProps) {
