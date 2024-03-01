@@ -49,7 +49,7 @@ Run the development server:
 - `yarn && yarn dev` (for development)
 - `yarn start` (for production)
 
-##Tools and Technologies Used
+## Tools and Technologies Used
 
 - **Shadcn-UI:** My go-to for initializing UI components and defining the application layout.
 
@@ -67,7 +67,7 @@ Run the development server:
 
 - **Sepolia Testnet:** public Ethereum testnet for testing DApps
 
-##Core Features and Enhancements
+## Core Features and Enhancements
 
 - **Enhanced Data Fetching:** and Caching with Next.js SSR: Using Next.js SSR, ensured the Pokémon data not only loads fast but is also cached efficiently. This means smoother browsing, enhancing the user experience significantly.
 
@@ -83,7 +83,7 @@ Run the development server:
 
 - **Blockchain Development:** The project includes an ERC721 NFT contract representing the collected Pokémon, with a multi-call function to optimize blockchain queries and reduce RPC calls.
 
-####Pokémon Collection Flow: Here's how it goes:
+#### Pokémon Collection Flow: Here's how it goes:
 
 • **Disconnected User:** Clicks `Collect`, and is prompted to connect their MetaMask wallet.
 • **Connected User:** Clicks `Collect`, signs a transaction on MetaMask, and the CollectPokemon contract is called, minting a Pokémon NFT. The `Collect` button state changes to `Collected`
@@ -92,7 +92,7 @@ Run the development server:
 
 - **User Collection Page:** A dedicated page displays the user's collected Pokémon, enhancing the overall experience. This feature utilizes local storage for data persistence, so it's not very robust and doesn't persist outside of the browser.
 
-###Areas for Growth
+### Areas for Growth
 
 **Tooltip Feature with Web Scraping:** It's there but without the web scraping part. I've simulated parts of the functionality, like showing an enhanced image preview and some stat info on hover.
 
