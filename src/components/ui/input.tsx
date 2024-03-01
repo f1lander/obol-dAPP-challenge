@@ -38,7 +38,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, type,
                 }
               }}
               key={index}
-              className="p-3 cursor-pointer hover:bg-white hover:text-black"
+              className="p-3 cursor-pointer hover:text-white"
             >
               {option}
             </span>
