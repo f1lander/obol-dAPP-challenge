@@ -25,7 +25,7 @@ function Container({ pokemonList }: PokemonListProps) {
 
   return (
     <>
-      <SearchBar searchText={searchText} setSearchText={setSearchText} handleFilterList={handleFilterPokemonList} />
+      <SearchBar searchText={searchText} setSearchText={setSearchText} handleFilterList={handleFilterPokemonList} pokemonList={pokemonList} />
       <PokemonList pokemonList={filteredPokemonList} />
     </>
   );

@@ -1,12 +1,13 @@
-import { getPokemonList } from '@/lib/server-utils';
+'use client';
 import Container from '@/components/container';
+import useUserFilteredPokemons from '@/hooks/useUserFilteredPokemons';
 
-export default async function MyPokemons() {
-  const pokemonList = await getPokemonList();
+export default function MyPokemons() {
+  const filteredPokemonList = useUserFilteredPokemons();
 
   return (
     <>
-      <Container pokemonList={pokemonList} />
+      <Container pokemonList={filteredPokemonList} />
     </>
   );
 }

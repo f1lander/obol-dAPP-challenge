@@ -1,6 +1,8 @@
 import { TPokemon } from '@/lib/types';
 import PokemonCard from './pokemon-card';
 import usePokemonCollectedStatuses from '@/hooks/usePokemonCollectedStatuses';
+import { useMemo, useState } from 'react';
+import { PaginationControls } from './pagination-controls';
 
 type PokemonListProps = {
   pokemonList: TPokemon[];
@@ -8,6 +10,30 @@ type PokemonListProps = {
 
 export default function PokemonList({ pokemonList }: PokemonListProps) {
   const collectedStatuses = usePokemonCollectedStatuses(pokemonList);
+
+  const itemsPerPage = 12;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalPages = Math.ceil(pokemonList.length / itemsPerPage);
+
+  const nextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+
+  const currentPokemonList = useMemo(() => {
+    return pokemonList.slice(indexOfFirstItem, indexOfLastItem);
+  }, [indexOfFirstItem, indexOfLastItem, pokemonList]);
 
   return (
     <>

@@ -1,3 +1,4 @@
+'use client';
 import { getPokemonList } from '@/lib/server-utils';
 import { TPokemon } from '@/lib/types';
 import React, { useEffect, useState } from 'react';

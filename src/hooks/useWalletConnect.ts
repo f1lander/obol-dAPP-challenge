@@ -5,7 +5,7 @@ export default function useWalletConnect() {
 
   const connectWallet = async () => {
     if (!isConnected) {
-      await connect({ connector: connectors[0] });
+      connect({ connector: connectors[0] });
     }
   };
 
