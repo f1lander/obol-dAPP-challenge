@@ -38,7 +38,7 @@ export default function PokemonList({ pokemonList }: PokemonListProps) {
   return (
     <>
       <div className="mb-32 w-full gap-x-12 gap-y-9 grid text-center lg:mb-0 md:grid-cols-2 lg:grid-cols-3 lg:text-left">
-        {pokemonList.map((pokemon, i) => (
+        {currentPokemonList.map((pokemon, i) => (
           <PokemonCard
             name={pokemon.name}
             key={pokemon.name}
@@ -52,7 +52,7 @@ export default function PokemonList({ pokemonList }: PokemonListProps) {
           />
         ))}
       </div>
-      {/* <PaginationControls prevPage={prevPage} nextPage={nextPage} currentPage={currentPage} totalPages={totalPages} /> */}
+      <PaginationControls prevPage={prevPage} nextPage={nextPage} currentPage={currentPage} totalPages={totalPages} />
     </>
   );
 }

@@ -6,7 +6,7 @@ import { TPokemon } from '@/lib/types';
 
 type SearchBarProps = {
   searchText: string;
-  handleFilterList: () => void;
+  handleFilterList: (event: any) => void;
   setSearchText: (text: string) => void;
   pokemonList: TPokemon[];
 };
@@ -27,8 +27,13 @@ export default function SearchBar({ searchText, setSearchText, handleFilterList,
     }
   };
 
+  const handleSearch = (event: any) => {
+    event.preventDefault();
+    handleFilterList(event);
+  };
+
   return (
-    <div className="flex items-center h-12 w-full max-w-4xl mr-auto gap-x-6 mb-12">
+    <form onSubmit={handleSearch} className="flex items-center h-12 w-full max-w-4xl mr-auto gap-x-6 mb-12">
       <Label className="text-white md:block hidden text-[32px]" htmlFor="search">
         Search
       </Label>
@@ -55,9 +60,9 @@ export default function SearchBar({ searchText, setSearchText, handleFilterList,
           </button>
         )}
       </div>
-      <Button onClick={handleFilterList} type="submit" variant="obolPrimary" className="h-full py-3 px-6 cursor-pointer" disabled={!searchText}>
+      <Button type="submit" variant="obolPrimary" className="h-full py-3 px-6 cursor-pointer" disabled={!searchText}>
         Search
       </Button>
-    </div>
+    </form>
   );
 }

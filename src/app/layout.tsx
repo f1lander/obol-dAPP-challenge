@@ -21,13 +21,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <NavBar />
-        <main className="flex min-h-screen flex-col items-center p-5 md:p-10 lg:p-20">
-          <ThemeProvider attribute="class" defaultTheme="dark">
-            <Web3Modal>{children}</Web3Modal>
-            <Toaster />
-          </ThemeProvider>
-        </main>
+        <Web3Modal>
+          <NavBar />
+          <main className="flex min-h-screen flex-col items-center p-5 md:p-10 lg:p-20">
+            <ThemeProvider attribute="class" defaultTheme="dark">
+              {children}
+              <Toaster />
+            </ThemeProvider>
+          </main>
+        </Web3Modal>
       </body>
     </html>
   );
