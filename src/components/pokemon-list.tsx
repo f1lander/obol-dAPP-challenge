@@ -13,7 +13,17 @@ export default function PokemonList({ pokemonList }: PokemonListProps) {
     <>
       <div className="mb-32 w-full gap-x-12 gap-y-9 grid text-center lg:mb-0 md:grid-cols-2 lg:grid-cols-3 lg:text-left">
         {pokemonList.map((pokemon, i) => (
-          <PokemonCard name={pokemon.name} key={pokemon.name} abilities={pokemon.abilities} image={pokemon.image} id={pokemon.id} isCollected={collectedStatuses[i]} />
+          <PokemonCard
+            name={pokemon.name}
+            key={pokemon.name}
+            abilities={pokemon.abilities}
+            image={pokemon.image}
+            id={pokemon.id}
+            order={pokemon.order}
+            stats={pokemon.stats}
+            weight={pokemon.weight}
+            isCollected={collectedStatuses[i]}
+          />
         ))}
       </div>
       {/* <PaginationControls prevPage={prevPage} nextPage={nextPage} currentPage={currentPage} totalPages={totalPages} /> */}

@@ -13,7 +13,7 @@ function NavBar() {
           <Logo />
         </div>
 
-        <Link href="/" className="text-muted font-bold text-[28px] hidden md:block hover:animate-pulse cursor-pointer">
+        <Link href="/" className="text-muted font-bold text-[28px] hidden md:block hover:shadow-lg hover:text-white/75 cursor-pointer">
           Pokemon List
         </Link>
 
@@ -23,7 +23,7 @@ function NavBar() {
         </div>
       </header>
       <div className="w-full text-center">
-        <h1 className="text-muted px-3 font-bold text-[20px] block md:hidden text-center">Pokemon List</h1>
+        <h1 className="text-muted px-3 font-bold text-[20px] block md:hidden text-center mt-4">Pokemon List</h1>
       </div>
     </>
   );

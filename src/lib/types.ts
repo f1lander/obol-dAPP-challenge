@@ -11,6 +11,22 @@ export type TPokemon = {
   image: string;
   abilities: string[];
   id: number;
+  order: number;
+  stats: StatObject;
+  weight: number;
+};
+
+export type Stat = {
+  base_stat: number;
+  effort: number;
+  stat: {
+    name: string;
+    url: string;
+  };
+};
+
+export type StatObject = {
+  [key: string]: number;
 };
 
 type Ability = {
