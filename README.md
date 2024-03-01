@@ -65,7 +65,7 @@ Run the development server:
 
 - **OpenZeppelin:** providing a secure and standardized framework for NFT development with reusable smart contracts for ERC-721 and ERC-1155 standards
 
-- **Sepolia Testnet:** public Ethereum testnet for testing DApps
+- **Sepolia Testnet:** public Ethereum testnet for testing DApps. some Sepolia ETH is required to interact with the app. Grab some from this [Sepolia Faucet](https://sepoliafaucet.com/)
 
 ## Core Features and Enhancements
 
@@ -73,11 +73,11 @@ Run the development server:
 
 - **Pagination and Navigation:** Implemented a pagination system to manage content display, allowing users to navigate through Pokémon lists efficiently. Though I know infinite scroll is the hot thing now.
 
-- **Advanced Search Functionality:** For the search functionality, I opted for the search button-click action instead of on search on user input. I tried to get confirmation on this, but I think this approach is best to reduce unnecessary renders and the need for debouncing. Regex validation was also used.
+- **Advanced Search Functionality:** For the search functionality, I opted for the search button-click action instead of triggering search on user input. I tried to get confirmation on this, but I think this approach is best to reduce unnecessary renders and the need for debouncing. Regex validation was also used to ensure text input.
 
-- **Input Search Suggestions:** Integrated a cool autocomplete input search suggestion feature, displaying Pokémon names in a dropdown menu and eliminating the need for guesswork. It suggests Pokémon to the user from the fetched Pokémon to streamline the user experience and minimize unnecessary queries.
+- **Input Search Suggestions:** Integrated a cool auto-complete input search suggestion feature, displaying Pokémon names in a dropdown menu and eliminating the need for guesswork. It suggests Pokémon to the user from the fetched Pokémon to streamline the user experience and minimize unnecessary queries.
 
-- **Tooltip Information Preview:** A tooltip feature provides users with a quick overview of Pokémon details on hover. Here, I'm displaying another image of the Pokémon along with its stats.
+- **Tooltip Information Preview:** A tooltip feature provides users with a quick overview of Pokémon details on hover. Here, I'm displaying another image of the Pokémon along with its stats. The details button leads to the wiki
 
 - **Web3 Integration:** Leveraging Wagmi and Web3Modal, users can seamlessly link to a variety of wallets and access different networks within each. This approach is both smooth and versatile, significantly enhancing the user experience by facilitating easy interactions across the blockchain ecosystem.
 
@@ -86,7 +86,7 @@ Run the development server:
 #### Pokémon Collection Flow: Here's how it goes:
 
 • **Disconnected User:** Clicks `Collect`, and is prompted to connect their MetaMask wallet.
-• **Connected User:** Clicks `Collect`, signs a transaction on MetaMask, and the CollectPokemon contract is called, minting a Pokémon NFT. The `Collect` button state changes to `Collected`
+• **Connected User:** Clicks `Collect`, signs a transaction on MetaMask, and the CollectPokemon contract is called, minting a Pokémon NFT. The `Collect` button state changes and text changes to `Collected`
 
 - **Notification System and Error Handling:** Toast notifications are used to inform users of success and error states. Reverts or fetch failures are also caught.
 
@@ -96,8 +96,10 @@ Run the development server:
 
 **Tooltip Feature with Web Scraping:** It's there but without the web scraping part. I've simulated parts of the functionality, like showing an enhanced image preview and some stat info on hover.
 
-**Future Features?:** Displaying the ownerAddress of collected Pokémons and much more.
+**Future Features?:** Displaying the ownerAddress of collected Pokémons will be cool to see.
 
 ## Deploy
 
-Currently Deployed to Vercel: https://williamslsy-obol-d-app-challenge.vercel.app/
+Here's the link to the Deployed [CollectPokemon Contract](https://etherscan.io/address/0x5FdD5f2c795628BA28ec64DBf19c20DaE1911385)
+
+App Currently Deployed to Vercel: [Obol Pokèmon dApp](https://williamslsy-obol-d-app-challenge.vercel.app/)
