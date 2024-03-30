@@ -6,9 +6,10 @@
   ],
   "exports": {
     "./styles.css": "./dist/index.css",
-    "./card": "./src/card.tsx",
-    "./button": "./src/button.tsx",
-    "./cards": "./src/molecules/cards/index.tsx"
+    "./button": "./src/atoms/button.tsx",
+    "./typography": "./src/atoms/typography.tsx",
+    "./cards": "./src/molecules/cards/index.tsx",
+    "./form-fields": "./src/molecules/form-fields/index.tsx"
   },
   "license": "MIT",
   "scripts": {

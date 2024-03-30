@@ -1,4 +1,6 @@
+import { Button } from "../../atoms/button";
 import React from "react";
+import Typography from "../../atoms/typography";
 
 interface ImageCardProps {
   title: string;
@@ -17,19 +19,25 @@ const ImageCard: React.FC<ImageCardProps> = ({
   imageUrl,
 }) => {
   return (
-    <div className="bg-bg-2 rounded-lg p-6 text-white">
+    <div className="bg-bg-2 rounded-lg p-6 text-white max-w-md">
       <div
-        className="bg-gray-500 h-40 rounded-lg"
-        style={{ backgroundImage: `url(${imageUrl})` }}
-      ></div>
-      <h3 className="mt-4 text-h3 font-bold">{title}</h3>
-      <p className="mt-4">{description}</p>
-      <button
-        className="mt-4 px-6 py-2 bg-aquamarine text-white rounded-lg hover:bg-viridian focus:outline-none"
-        onClick={onLinkClick}
-      >
+        className="bg-gray-500 h-60 rounded-lg"
+        style={{
+          backgroundImage: `url(${imageUrl})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      />
+      <Typography className="mt-4 font-semi-bold" variant="h3">
+        {title}
+      </Typography>
+      <Typography className="mt-4 text-[#9CC2C9]" variant="body">
+        {description}
+      </Typography>
+      <Button onClick={onLinkClick} variant="primary">
         {linkText}
-      </button>
+      </Button>
     </div>
   );
 };
