@@ -1,5 +1,6 @@
+import type { PokemonDetails, PokemonListResponse } from '../../types/pokemon';
+
 import { POKEMON_BASE_URL } from '../../constants';
-import { PokemonDetails, type PokemonListResponse } from '../../types/pokemon';
 
 export const pokemonQueries = {
   async getPokemonList(args: {
@@ -10,13 +11,11 @@ export const pokemonQueries = {
       `${POKEMON_BASE_URL}?limit=${args.limit}&offset=${args.offset}`
     );
 
-    const data = await response.json();
-    return data as PokemonListResponse;
+    return (await response.json()) as PokemonListResponse;
   },
 
   async getPokemonDetails(name: string) {
     const response = await fetch(`${POKEMON_BASE_URL}/${name}`);
-    const data = await response.json();
-    return data as PokemonDetails;
+    return (await response.json()) as PokemonDetails;
   },
 };
