@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import PokemonList from '../presentation/pokemon-list';
 import { pokemonQueries } from '../data/query/pokemon';
 
