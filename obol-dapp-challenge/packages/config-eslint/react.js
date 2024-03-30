@@ -37,6 +37,9 @@ module.exports = {
   // add rules configurations here
   rules: {
     "import/no-default-export": "off",
+    "react/function-component-definition": "off",
+    "import/order": "off",
+    "react/jsx-sort-props": "off",
   },
   overrides: [
     {

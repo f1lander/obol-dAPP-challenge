@@ -3,9 +3,9 @@ import React from "react";
 // Define a type for the Button props
 interface ButtonProps {
   children: React.ReactNode;
-  variant: "primary" | "secondary" | "disabled"; // Add more variants as needed
+  variant: "primary" | "secondary" | "disabled";
   isLoading?: boolean;
-  onClick?: () => void; // Add more event handlers as needed
+  onClick?: () => void;
 }
 
 export function Button({
@@ -16,15 +16,9 @@ export function Button({
 }: ButtonProps): JSX.Element {
   // Determine the button color based on the 'variant' prop
   const colorClasses: { [key in ButtonProps["variant"]]?: string } = {
-    primary: "bg-aquamarine text-white hover:bg-viridian",
-    secondary: "bg-dark-turquoise text-white hover:bg-flame",
+    primary: "hover:bg-aquamarine text-[#081011] bg-viridian",
+    secondary: "bg-dark-turquoise text-[##9CC2C9] hover:bg-flame",
     disabled: "bg-muted text-white",
-  };
-
-  const textColorClasses: { [key in ButtonProps["variant"]]?: string } = {
-    primary: "text-[#081011]",
-    secondary: "text-[#9CC2C9]",
-    disabled: "text-gray-400",
   };
 
   const commonClasses =
@@ -35,7 +29,7 @@ export function Button({
 
   return (
     <button
-      className={`${commonClasses} ${colorClasses[variant]} ${textColorClasses[variant]} ${loadingClasses}`}
+      className={`${commonClasses} ${colorClasses[variant]} ${loadingClasses}`}
       disabled={isLoading}
       type="button"
       {...props}
