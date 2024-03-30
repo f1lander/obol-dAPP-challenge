@@ -2,7 +2,7 @@
 import React from 'react';
 import { titleCase } from '../utils/string-utils';
 
-const typeColorMap = {
+const typeColorMap: Record<string, string> = {
   normal: '#A8A77A',
   fire: '#EE8130',
   water: '#6390F0',
