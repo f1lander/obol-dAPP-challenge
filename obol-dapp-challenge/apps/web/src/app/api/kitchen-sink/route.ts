@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/prefer-regexp-exec -- r*/
 import * as cheerio from 'cheerio';
 
 import { promises as fs } from 'fs';
@@ -26,15 +27,17 @@ export async function GET(_: Request): Promise<Response> {
   const statsSelector = $(
     'th[style*="padding-left: 0.2em; padding-right: 0.2em;"]'
   );
-
   const stats = statsSelector.toArray().map((el) => $(el).text());
-
   const statMap: Record<string, number> = {};
 
   stats.forEach((stat) => {
-    const statName = stat.match(/\w+/)[0];
-    const statNumber = parseInt(stat.match(/\d+/)[0]);
-    statMap[statName] = statNumber;
+    const statNameMatch = stat.match(/\w+/);
+    const statNumberMatch = stat.match(/\d+/);
+    if (statNameMatch && statNumberMatch) {
+      const statName = statNameMatch[0];
+      const statNumber = parseInt(statNumberMatch[0]);
+      statMap[statName] = statNumber;
+    }
   });
 
   return new Response(
