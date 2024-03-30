@@ -6,7 +6,9 @@
   ],
   "exports": {
     "./styles.css": "./dist/index.css",
-    "./card": "./src/card.tsx"
+    "./card": "./src/card.tsx",
+    "./button": "./src/button.tsx",
+    "./cards": "./src/molecules/cards/index.tsx"
   },
   "license": "MIT",
   "scripts": {
