@@ -7,9 +7,11 @@
   "exports": {
     "./styles.css": "./dist/index.css",
     "./button": "./src/atoms/button.tsx",
+    "./tooltip": "./src/molecules/tooltips/tooltip.tsx",
     "./typography": "./src/atoms/typography.tsx",
     "./cards": "./src/molecules/cards/index.tsx",
-    "./form-fields": "./src/molecules/form-fields/index.tsx"
+    "./form-fields": "./src/molecules/form-fields/index.tsx",
+    "./modal": "./src/molecules/modals/modal.tsx"
   },
   "license": "MIT",
   "scripts": {
@@ -31,5 +33,8 @@
     "react": "^18.2.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.18"
   }
 }

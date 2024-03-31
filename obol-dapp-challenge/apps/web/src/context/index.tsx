@@ -1,11 +1,11 @@
 'use client';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { State, WagmiProvider } from 'wagmi';
-
-import { ReactNode } from 'react';
-import { config } from '../config';
+import type { State } from 'wagmi';
+import { WagmiProvider } from 'wagmi';
 import { createWeb3Modal } from '@web3modal/wagmi/react';
+import type { ReactNode } from 'react';
+import { config } from '../config';
 
 // Setup queryClient
 const queryClient = new QueryClient();
@@ -27,7 +27,7 @@ export default function Web3ModalProvider({
 }: {
   children: ReactNode;
   initialState?: State;
-}) {
+}): JSX.Element {
   return (
     <WagmiProvider config={config} initialState={initialState}>
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
