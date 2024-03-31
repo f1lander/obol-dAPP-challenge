@@ -31,3 +31,18 @@ export interface Type {
     name: string;
   };
 }
+
+export interface PokemonScrappedData {
+  abilities: string[];
+  stats: PokemonStats;
+  generations: string[];
+}
+
+export interface PokemonStats {
+  HP: number;
+  Attack: number;
+  Defense: number;
+  Sp: number;
+  Speed: number;
+  Total: number;
+}

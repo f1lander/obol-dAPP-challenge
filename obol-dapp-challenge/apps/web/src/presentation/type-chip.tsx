@@ -1,6 +1,5 @@
 /* eslint-disable react/function-component-definition -- r*/
 import React from 'react';
-import { titleCase } from '../utils/string-utils';
 
 const typeColorMap: Record<string, string> = {
   normal: '#A8A77A',
@@ -29,11 +28,20 @@ interface ChipProps {
 }
 
 const Chip: React.FC<ChipProps> = ({ type }) => {
-  const typeColor = `bg-[${typeColorMap[type]}]`;
-  const commonClasses = 'px-2 py-1 rounded-full text-white text-sm font-medium';
-
   return (
-    <span className={`${commonClasses} ${typeColor}`}>{titleCase(type)}</span>
+    <span
+      style={{
+        background: typeColorMap[type],
+        padding: '0.25rem 0.5rem',
+        borderRadius: '9999px',
+        fontSize: '0.75rem',
+        color: '#fff',
+        fontWeight: 500,
+        textTransform: 'capitalize',
+      }}
+    >
+      {type}
+    </span>
   );
 };
 
