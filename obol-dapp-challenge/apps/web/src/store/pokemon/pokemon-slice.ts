@@ -1,5 +1,5 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { POKEMON_BASE_URL } from '../../constants';
 import type {
   PokemonDetails,
@@ -34,28 +34,6 @@ export const pokemonSlice = createAppSlice({
         state.searchQuery = action.payload;
       }
     ),
-    fetchPokemons: create.asyncThunk(
-      async (args: { offset: number }, { dispatch }) => {
-        const response = await dispatch(
-          pokemonApiSlice.endpoints.getPokemonList.initiate(args.offset)
-        );
-
-        if (response.data) {
-          return response.data;
-        }
-      },
-      {
-        fulfilled: (state, action) => {
-          if (action.payload?.next) {
-            state.offset += 20;
-          }
-
-          if (action.payload?.results) {
-            state.pokemons = state.pokemons.concat(action.payload.results);
-          }
-        },
-      }
-    ),
   }),
   selectors: {
     selectPokemons: (state) => state.pokemons,
@@ -71,22 +49,29 @@ export const pokemonSlice = createAppSlice({
 });
 
 export const pokemonApiSlice = createApi({
-  reducerPath: 'pokemon-api',
+  reducerPath: 'pokemonApi',
   baseQuery: fetchBaseQuery({ baseUrl: POKEMON_BASE_URL }),
   tagTypes: ['Pokemon'],
   endpoints: (builder) => ({
     getPokemonByName: builder.query<PokemonDetails, string>({
       query: (name: string) => `/${name}`,
     }),
-
     getPokemonList: builder.query<PokemonListResponse, number>({
-      query: (offset = 20) => `?offset=${offset.toString()}&limit=20`,
+      query: (page: number) => `?offset=${page * 20}&limit=20`,
+      serializeQueryArgs: ({ endpointName }) => {
+        return endpointName;
+      },
+      merge: (currentCache, newItems) => {
+        currentCache.results.push(...newItems.results);
+      },
+      forceRefetch({ currentArg, previousArg }) {
+        return currentArg !== previousArg;
+      },
     }),
   }),
 });
 
-export const { setPokemons, setSearchQuery, fetchPokemons } =
-  pokemonSlice.actions;
+export const { setPokemons, setSearchQuery } = pokemonSlice.actions;
 export const { selectPokemons, selectSearchQuery, filteredPokemons } =
   pokemonSlice.selectors;
-export const { getPokemonByName, getPokemonList } = pokemonApiSlice.endpoints;
+export const { useGetPokemonListQuery } = pokemonApiSlice;

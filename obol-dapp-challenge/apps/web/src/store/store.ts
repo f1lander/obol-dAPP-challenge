@@ -1,13 +1,27 @@
-import { configureStore } from '@reduxjs/toolkit';
+import type { Action, ThunkAction } from '@reduxjs/toolkit';
+import { combineSlices, configureStore } from '@reduxjs/toolkit';
+import { pokemonApiSlice, pokemonSlice } from './pokemon/pokemon-slice';
+
+const rootReducer = combineSlices(pokemonSlice, pokemonApiSlice);
+
+export type RootState = ReturnType<typeof rootReducer>;
 
 export const makeStore = (): ReturnType<typeof configureStore> => {
   return configureStore({
-    reducer: {},
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) => {
+      return getDefaultMiddleware().concat(pokemonApiSlice.middleware);
+    },
   });
 };
 
-// Infer the type of makeStore
+// Infer the return type of `makeStore`
 export type AppStore = ReturnType<typeof makeStore>;
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<AppStore['getState']>;
+// Infer the `AppDispatch` type from the store itself
 export type AppDispatch = AppStore['dispatch'];
+export type AppThunk<ThunkReturnType = void> = ThunkAction<
+  ThunkReturnType,
+  RootState,
+  unknown,
+  Action
+>;
