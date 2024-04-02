@@ -12,12 +12,14 @@ export interface PokemonSliceState {
   pokemons: PokemonListItem[];
   searchQuery?: string;
   offset: number;
+  pokemonSignatures: Record<string, string>;
 }
 
 const initialState: PokemonSliceState = {
   pokemons: [],
   searchQuery: '',
   offset: 0,
+  pokemonSignatures: {},
 };
 
 export const pokemonSlice = createAppSlice({
@@ -34,10 +36,30 @@ export const pokemonSlice = createAppSlice({
         state.searchQuery = action.payload;
       }
     ),
+    setPokemonSignature: create.reducer<{ name: string; signature: string }>(
+      (state, action: PayloadAction<{ name: string; signature: string }>) => {
+        state.pokemonSignatures[action.payload.name] = action.payload.signature;
+        localStorage.setItem(action.payload.name, action.payload.signature);
+      }
+    ),
   }),
+  extraReducers: (builder) => {
+    builder.addMatcher(
+      pokemonApiSlice.endpoints.getPokemonList.matchFulfilled,
+      (state, action) => {
+        state.pokemons.push(...action.payload.results);
+      }
+    );
+  },
   selectors: {
     selectPokemons: (state) => state.pokemons,
     selectSearchQuery: (state) => state.searchQuery,
+    selectPokemonSignature: (state, name: string) => {
+      if (state.pokemonSignatures[name]) {
+        return state.pokemonSignatures[name];
+      }
+      return localStorage.getItem(name);
+    },
     filteredPokemons: (state) => {
       if (!state.searchQuery || state.searchQuery === '') return state.pokemons;
 
@@ -71,7 +93,12 @@ export const pokemonApiSlice = createApi({
   }),
 });
 
-export const { setPokemons, setSearchQuery } = pokemonSlice.actions;
-export const { selectPokemons, selectSearchQuery, filteredPokemons } =
-  pokemonSlice.selectors;
+export const { setPokemons, setSearchQuery, setPokemonSignature } =
+  pokemonSlice.actions;
+export const {
+  selectPokemons,
+  selectSearchQuery,
+  filteredPokemons,
+  selectPokemonSignature,
+} = pokemonSlice.selectors;
 export const { useGetPokemonListQuery } = pokemonApiSlice;

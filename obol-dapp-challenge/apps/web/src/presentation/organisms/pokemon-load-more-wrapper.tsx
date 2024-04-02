@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useAppDispatch } from '../../hooks/redux-hooks';
 import {
-  useGetPokemonListQuery,
   setSearchQuery,
-  setPokemons,
+  useGetPokemonListQuery,
 } from '../../store/pokemon/pokemon-slice';
 
 interface LoadMoreWrapperProps {
@@ -16,7 +15,7 @@ export function PaginatedPokemonLoader({
   searchQuery,
 }: LoadMoreWrapperProps): JSX.Element {
   const [page, setPage] = useState(0);
-  const { data, isFetching } = useGetPokemonListQuery(page);
+  const { isFetching } = useGetPokemonListQuery(page);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -37,12 +36,6 @@ export function PaginatedPokemonLoader({
       document.removeEventListener('scroll', onScroll);
     };
   }, [page, isFetching]);
-
-  useEffect(() => {
-    if (data?.results) {
-      dispatch(setPokemons(data.results));
-    }
-  }, [data, dispatch]);
 
   return <>{children}</>;
 }

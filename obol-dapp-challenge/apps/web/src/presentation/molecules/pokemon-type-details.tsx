@@ -1,5 +1,5 @@
 import { pokemonQueries } from '../../data/query/pokemon';
-import { PokemonDetails } from '../../types/pokemon';
+import type { PokemonDetails } from '../../types/pokemon';
 import Chip from '../type-chip';
 
 const getPokemonTypes = (pokemon: PokemonDetails): string[] => {

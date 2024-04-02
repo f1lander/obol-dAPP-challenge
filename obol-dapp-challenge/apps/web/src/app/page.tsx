@@ -1,4 +1,3 @@
-// import PokemonList from '../presentation/pokemon-list';
 import { pokemonQueries } from '../data/query/pokemon';
 import { LoadMoreWrapper } from '../presentation/organisms/load-more-wrapper';
 import PokemonList from '../presentation/pokemon-list';

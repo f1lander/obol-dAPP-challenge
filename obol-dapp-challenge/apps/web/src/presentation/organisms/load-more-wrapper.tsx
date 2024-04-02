@@ -79,7 +79,7 @@ export function LoadMoreWrapper<T extends string | number = any>({
 
   return (
     <>
-      <div className='relative grid grid-cols-1 gap-4 pt-12 sm:grid-cols-2 lg:grid-cols-4'>
+      <div className='relative grid grid-cols-1 gap-4 pt-12'>
         {children}
         {loadMoreNodes}
       </div>
