@@ -11,12 +11,14 @@ interface PokemonCardProps {
 
 export default function PokemonCard(props: PokemonCardProps): JSX.Element {
   const { pokemon } = props;
+
+  const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
+    pokemon.url.split('/')[6]
+  }.png`;
+
   return (
     <div className='overflow-hidden rounded-lg shadow' key={pokemon.name}>
-      <ImageCard
-        imageUrl={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
-        title={titleCase(pokemon.name)}
-      >
+      <ImageCard imageUrl={url} title={titleCase(pokemon.name)}>
         {props.children}
       </ImageCard>
     </div>

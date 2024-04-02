@@ -11,7 +11,7 @@ interface LoadMoreWrapperProps {
   searchQuery: string;
 }
 
-export function LoadMoreWrapper({
+export function PaginatedPokemonLoader({
   children,
   searchQuery,
 }: LoadMoreWrapperProps): JSX.Element {
@@ -23,28 +23,26 @@ export function LoadMoreWrapper({
     dispatch(setSearchQuery(searchQuery));
   }, [dispatch, searchQuery]);
 
-  const onScroll = (): void => {
-    const scrolledToBottom =
-      window.innerHeight + window.scrollY >= document.body.offsetHeight;
-    if (scrolledToBottom && !isFetching) {
-      setPage((prevPage) => prevPage + 1);
-    }
-  };
-
   useEffect(() => {
+    const onScroll = (): void => {
+      const scrolledToBottom =
+        window.innerHeight + window.scrollY >= document.body.offsetHeight;
+      if (scrolledToBottom && !isFetching) {
+        setPage((prevPage) => prevPage + 1);
+      }
+    };
+
     document.addEventListener('scroll', onScroll);
     return () => {
       document.removeEventListener('scroll', onScroll);
     };
-  }, [onScroll, isFetching]);
+  }, [page, isFetching]);
 
   useEffect(() => {
     if (data?.results) {
       dispatch(setPokemons(data.results));
     }
   }, [data, dispatch]);
-
-  if (isFetching) return <div>Loading...</div>;
 
   return <>{children}</>;
 }
