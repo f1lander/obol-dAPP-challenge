@@ -1,40 +1,25 @@
-import type { PokemonDetails, PokemonListItem } from '../types/pokemon';
+'use client';
 
-import Chip from './type-chip';
 import { ImageCard } from '@repo/ui/cards';
-import { pokemonQueries } from '../data/query/pokemon';
+import type { PokemonListItem } from '../types/pokemon';
 import { titleCase } from '../utils/string-utils';
 
 interface PokemonCardProps {
   pokemon: PokemonListItem;
+  children?: React.ReactNode;
 }
 
-const getPokemonTypes = (pokemon: PokemonDetails): string[] => {
-  return pokemon.types.map((type) => type.type.name);
-};
-
-export default async function PokemonCard(
-  props: PokemonCardProps
-): Promise<JSX.Element> {
+export default function PokemonCard(props: PokemonCardProps): JSX.Element {
   const { pokemon } = props;
 
-  const pokemonDetails = await pokemonQueries.getPokemonDetails(pokemon.name);
-  const types = getPokemonTypes(pokemonDetails);
+  const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
+    pokemon.url.split('/')[6]
+  }.png`;
 
   return (
-    <div
-      className='overflow-hidden rounded-lg bg-white shadow'
-      key={pokemon.name}
-    >
-      <ImageCard
-        imageUrl={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
-        title={titleCase(pokemon.name)}
-      >
-        <div className='flex flex-row gap-4'>
-          {types.map((type) => (
-            <Chip key={type} type={type} />
-          ))}
-        </div>
+    <div className='overflow-hidden rounded-lg shadow' key={pokemon.name}>
+      <ImageCard imageUrl={url} title={titleCase(pokemon.name)}>
+        {props.children}
       </ImageCard>
     </div>
   );

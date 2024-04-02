@@ -5,13 +5,15 @@ interface ButtonProps {
   children: React.ReactNode;
   variant: "primary" | "secondary" | "disabled";
   isLoading?: boolean;
-  onClick?: () => void;
+  ref?: React.Ref<HTMLButtonElement>;
+  onClick?: () => void | Promise<void>;
 }
 
 export function Button({
   children,
   variant,
   isLoading,
+  ref,
   ...props
 }: ButtonProps): JSX.Element {
   // Determine the button color based on the 'variant' prop
@@ -29,6 +31,7 @@ export function Button({
 
   return (
     <button
+      ref={ref}
       className={`${commonClasses} ${colorClasses[variant]} ${loadingClasses}`}
       disabled={isLoading}
       type="button"

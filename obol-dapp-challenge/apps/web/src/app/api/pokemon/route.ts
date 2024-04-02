@@ -1,7 +1,5 @@
-import * as cheerio from 'cheerio';
-
 import { NextResponse } from 'next/server';
-import { POKEMON_DETAILS_URL } from '../../../constants';
+import { BulbapediaScrapper } from '../../../clients/bulbapedia-scrapper';
 
 // To handle a GET request to /api
 export async function GET(request: Request): Promise<Response> {
@@ -15,38 +13,8 @@ export async function GET(request: Request): Promise<Response> {
       { status: 400 }
     );
   }
+  const scrapper = new BulbapediaScrapper(name);
+  const pokemonData = await scrapper.getPokemonData();
 
-  // Gotta do some web scraping here
-  const url = `${POKEMON_DETAILS_URL}/${encodeURIComponent(name)}`;
-
-  try {
-    const response = await fetch(url);
-    const html = await response.text();
-
-    // Do some web scraping here
-    const $ = cheerio.load(html);
-
-    const title = $('title').text();
-
-    const abilities = $('td a[href*=(Ability)] span')
-      .toArray()
-      .map((el) => $(el).text());
-
-    const gen = $('ul li span a[class*="external text"] ').text();
-
-    // clean up the abilities, remove "Cacophony" and duplicates
-    const cleanedAbilities = [...new Set(abilities)].filter(
-      (ability) => ability !== 'Cacophony'
-    );
-
-    return NextResponse.json(
-      { title, abilities: cleanedAbilities, gen },
-      { status: 200 }
-    );
-  } catch (e) {
-    return NextResponse.json(
-      { message: 'Something went wrong' },
-      { status: 503 }
-    );
-  }
+  return NextResponse.json(pokemonData, { status: 200 });
 }
