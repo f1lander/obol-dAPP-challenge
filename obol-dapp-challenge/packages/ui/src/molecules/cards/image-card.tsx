@@ -21,7 +21,7 @@ const ImageCard: React.FC<ImageCardProps> = ({
         className="bg-gray-500 h-60 rounded-lg"
         style={{
           backgroundImage: `url(${imageUrl})`,
-          backgroundSize: "cover",
+          backgroundSize: "contain",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
@@ -30,11 +30,11 @@ const ImageCard: React.FC<ImageCardProps> = ({
         <Typography className="mt-4 font-semi-bold" variant="h3">
           {title}
         </Typography>
-        {description && (
+        {description ? (
           <Typography className="mt-4 text-[#9CC2C9]" variant="body">
             {description}
           </Typography>
-        )}
+        ) : null}
         {children}
       </div>
     </div>

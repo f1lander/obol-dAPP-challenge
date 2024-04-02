@@ -1,9 +1,5 @@
-import type {
-  PokemonDetails,
-  PokemonListResponse,
-  PokemonScrappedData,
-} from '../../types/pokemon';
 import { POKEMON_BASE_URL } from '../../constants';
+import type { PokemonDetails, PokemonListResponse } from '../../types/pokemon';
 
 export const pokemonQueries = {
   async getPokemonList(args: {
@@ -20,13 +16,5 @@ export const pokemonQueries = {
   async getPokemonDetails(name: string) {
     const response = await fetch(`${POKEMON_BASE_URL}/${name}`);
     return (await response.json()) as PokemonDetails;
-  },
-
-  async getBulbapediaData(name: string) {
-    // localhost:3000/api/pokemon?name=ninetales
-    const response = await fetch(
-      `http://localhost:3000/api/pokemon?name=${encodeURIComponent(name)}`
-    );
-    return (await response.json()) as PokemonScrappedData;
   },
 };
