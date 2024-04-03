@@ -52,7 +52,7 @@ export default function PokemonGotchaButton(
   }
 
   return (
-    <div>
+    <div className='text-center'>
       {verifyMessage.data ? (
         <Typography className='my-2 text-center' variant='subline'>
           You caught a wild {props.pokemon.name}!
