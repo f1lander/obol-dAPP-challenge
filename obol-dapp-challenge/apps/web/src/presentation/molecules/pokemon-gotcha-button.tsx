@@ -45,10 +45,16 @@ export default function PokemonGotchaButton(
     }
   }, [dispatch, props.pokemon.name, signature, verifyMessage.data]);
 
+  if (!account.address) {
+    return (
+      <Typography variant='metadata'>Please log in to catch em</Typography>
+    );
+  }
+
   return (
     <div>
       {verifyMessage.data ? (
-        <Typography variant='h4'>
+        <Typography className='my-2 text-center' variant='subline'>
           You caught a wild {props.pokemon.name}!
         </Typography>
       ) : (
@@ -60,7 +66,7 @@ export default function PokemonGotchaButton(
           }}
           variant='primary'
         >
-          Catch em ⚡
+          Catch em
         </Button>
       )}
 

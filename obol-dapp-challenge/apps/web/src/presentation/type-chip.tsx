@@ -1,7 +1,7 @@
 /* eslint-disable react/function-component-definition -- r*/
 import React from 'react';
 
-const typeColorMap: Record<string, string> = {
+export const typeColorMap: Record<string, string> = {
   normal: '#A8A77A',
   fire: '#EE8130',
   water: '#6390F0',
