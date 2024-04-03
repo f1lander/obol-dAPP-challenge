@@ -101,4 +101,5 @@ export const {
   filteredPokemons,
   selectPokemonSignature,
 } = pokemonSlice.selectors;
-export const { useGetPokemonListQuery } = pokemonApiSlice;
+export const { useGetPokemonListQuery, useGetPokemonByNameQuery } =
+  pokemonApiSlice;

@@ -24,12 +24,6 @@ export default async function Page(): Promise<JSX.Element> {
 
   return (
     <main className='min-h-screen p-24'>
-      <div className='grid grid-cols-4 gap-4'>
-        <div className='text-xl' />
-        <div className='text-xl' />
-        <div className='text-xl' />
-        <div className='text-xl' />
-      </div>
       <LoadMoreWrapper initialOffset={20} loadMoreAction={loadMorePokemon}>
         <PokemonList pokemon={initialPokemonData} />
       </LoadMoreWrapper>
