@@ -15,7 +15,7 @@ export default async function PokemonTypeDetails({
   const types = getPokemonTypes(pokemonDetails);
 
   return (
-    <div className='overflow-hidden rounded-lg shadow' key={pokemonName}>
+    <div className='my-6 overflow-hidden rounded-lg shadow' key={pokemonName}>
       <div className='flex flex-row gap-4'>
         {types.map((type) => (
           <Chip key={type} type={type} />

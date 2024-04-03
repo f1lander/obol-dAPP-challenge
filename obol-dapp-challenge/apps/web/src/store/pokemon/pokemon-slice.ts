@@ -5,6 +5,7 @@ import type {
   PokemonDetails,
   PokemonListItem,
   PokemonListResponse,
+  PokemonScrappedData,
 } from '../../types/pokemon';
 import { createAppSlice } from '../create-app-slice';
 
@@ -93,6 +94,17 @@ export const pokemonApiSlice = createApi({
   }),
 });
 
+export const serverApiSlice = createApi({
+  reducerPath: 'serverApi',
+  baseQuery: fetchBaseQuery({ baseUrl: '/api' }),
+  tagTypes: ['Server'],
+  endpoints: (builder) => ({
+    getPokemonScrappedDetails: builder.query<PokemonScrappedData, string>({
+      query: (name: string) => `pokemon?name=${name}`,
+    }),
+  }),
+});
+
 export const { setPokemons, setSearchQuery, setPokemonSignature } =
   pokemonSlice.actions;
 export const {
@@ -103,3 +115,5 @@ export const {
 } = pokemonSlice.selectors;
 export const { useGetPokemonListQuery, useGetPokemonByNameQuery } =
   pokemonApiSlice;
+
+export const { useGetPokemonScrappedDetailsQuery } = serverApiSlice;

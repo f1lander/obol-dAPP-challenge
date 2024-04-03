@@ -17,7 +17,9 @@ export default function PokemonList(props: PokemonListProps): JSX.Element {
             key={pokemon.name}
           >
             <PokemonCard pokemon={pokemon}>
-              <PokemonTypeDetails pokemonName={pokemon.name} />
+              <div className='my-4'>
+                <PokemonTypeDetails pokemonName={pokemon.name} />
+              </div>
               <PokemonStats pokemonName={pokemon.name} />
             </PokemonCard>
           </div>
