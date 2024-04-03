@@ -31,11 +31,10 @@ Refer to our updated Figma file for design guidelines: [Figma File]([https://www
 
 ## Getting Started
 
-1. Clone the repository.
-2. Ensure Node.js is installed.
-3. Initialize the project using Create Next.js App with Yarn.
-4. Implement features following the Git Flow model.
-5. Submit a PR to the main branch upon completion.
+1. Ensure Node.js is installed.
+2. Initialize the project using Create Next.js App with Yarn.
+3. Implement features following the Git Flow model.
+4. Submit a PR to the main branch upon completion.
 👀
 ### Development Commands
 
@@ -59,3 +58,10 @@ This challenge is your opportunity to showcase your skills in both advanced fron
 ## deploy
 
 Deploy this using something like vercel or similar, and share the deployed link in your PR description.
+
+## Note
+
+Since PRs to this repo are not required, cretae your repo as private and add me (f1lander) as collaborator so then I can review it.
+
+
+
