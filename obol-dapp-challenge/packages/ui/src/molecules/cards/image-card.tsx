@@ -16,18 +16,18 @@ const ImageCard: React.FC<ImageCardProps> = ({
   children,
 }) => {
   return (
-    <div className="bg-bg-2 rounded-lg p-6 text-white max-w-lg">
+    <div className="bg-bg-2  rounded-lg p-6 text-white max-w-lg">
       <div
-        className="bg-gray-500 h-60 rounded-lg"
+        className="h-60 rounded-lg"
         style={{
-          backgroundImage: `url(${imageUrl})`,
+          backgroundImage: `url(${imageUrl}), linear-gradient(90deg, #32DDD0 0%, #0676E4 100%)`,
           backgroundSize: "contain",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
       />
       <div className="flex flex-col items-center align-center">
-        <Typography className="mt-4 font-semi-bold" variant="h3">
+        <Typography className="mt-4 font-semi-bold" variant="h4">
           {title}
         </Typography>
         {description ? (

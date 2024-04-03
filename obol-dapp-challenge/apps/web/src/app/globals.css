@@ -25,3 +25,12 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.card {
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}

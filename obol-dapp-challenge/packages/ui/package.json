@@ -1,6 +1,6 @@
 {
   "name": "@repo/ui",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "sideEffects": [
     "**/*.css"
   ],
@@ -11,7 +11,8 @@
     "./typography": "./src/atoms/typography.tsx",
     "./cards": "./src/molecules/cards/index.tsx",
     "./form-fields": "./src/molecules/form-fields/index.tsx",
-    "./modal": "./src/molecules/modals/modal.tsx"
+    "./modal": "./src/molecules/modals/modal.tsx",
+    "./spinner": "./src/atoms/spinner.tsx"
   },
   "license": "MIT",
   "scripts": {
@@ -35,6 +36,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.18"
+    "@headlessui/react": "^1.7.18",
+    "framer-motion": "^11.0.24"
   }
 }

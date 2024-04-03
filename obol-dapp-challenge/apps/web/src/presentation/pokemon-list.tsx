@@ -9,7 +9,7 @@ interface PokemonListProps {
 
 export default function PokemonList(props: PokemonListProps): JSX.Element {
   return (
-    <div className='mx-auto max-w-6xl px-4 sm:px-6 lg:px-8'>
+    <div className='px-4 sm:px-6 lg:px-8'>
       <div className='grid grid-cols-4 gap-4'>
         {(props.pokemon?.results || []).map((pokemon: PokemonListItem) => (
           <div
@@ -17,7 +17,9 @@ export default function PokemonList(props: PokemonListProps): JSX.Element {
             key={pokemon.name}
           >
             <PokemonCard pokemon={pokemon}>
-              <PokemonTypeDetails pokemonName={pokemon.name} />
+              <div className='my-4'>
+                <PokemonTypeDetails pokemonName={pokemon.name} />
+              </div>
               <PokemonStats pokemonName={pokemon.name} />
             </PokemonCard>
           </div>

@@ -1,7 +1,7 @@
 /* eslint-disable react/function-component-definition -- r*/
 import React from 'react';
 
-const typeColorMap: Record<string, string> = {
+export const typeColorMap: Record<string, string> = {
   normal: '#A8A77A',
   fire: '#EE8130',
   water: '#6390F0',
@@ -31,11 +31,11 @@ const Chip: React.FC<ChipProps> = ({ type }) => {
   return (
     <span
       style={{
-        background: typeColorMap[type],
+        borderColor: typeColorMap[type],
+        border: `1px solid ${typeColorMap[type]}`,
         padding: '0.25rem 0.5rem',
-        borderRadius: '9999px',
+        borderRadius: '8px',
         fontSize: '0.75rem',
-        color: '#fff',
         fontWeight: 500,
         textTransform: 'capitalize',
       }}
